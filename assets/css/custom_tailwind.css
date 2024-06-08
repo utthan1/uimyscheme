@@ -1,0 +1,13 @@
+.\!grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.bg-\[\#d3f8e1\] { background-color: #d3f8e1; }
+.bg-\[\#e2faeb\] { background-color: #e2faeb; }
+.bg-\[\#f0fdf5\] { background-color: #f0fdf5; }
+
+@media (min-width: 1024px) {
+    .lg\:\!w-3\/5 {
+        width: 60% !important;
+    }
+}
