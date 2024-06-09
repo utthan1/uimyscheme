@@ -49,6 +49,67 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleFixedTopClass();
 
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const containers = document.querySelectorAll('.facet__value-container');
+
+    containers.forEach(container => {
+        const placeholder = container.querySelector('.facet__placeholder');
+        const dropdownItems = container.querySelectorAll('.custom-dropdown-item');
+
+        placeholder.addEventListener('click', function() {
+            container.classList.toggle('open');
+        });
+
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                placeholder.textContent = item.textContent;
+                container.classList.remove('open');
+            });
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        containers.forEach(container => {
+            if (!container.contains(event.target)) {
+                container.classList.remove('open');
+            }
+        });
+    });
+
+    
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.filter-button');
+
+    sections.forEach(section => {
+        const toggle = section.querySelector('.filter-toggle');
+        const options = section.querySelector('.filter-options');
+
+        toggle.addEventListener('click', function() {
+            if (options.classList.contains('show')) {
+                options.style.height = '0';
+            } else {
+                options.style.height = `${options.scrollHeight}px`;
+            }
+            options.classList.toggle('show');
+        });
+    });
+
+    // Handle click outside to close dropdowns
+    document.addEventListener('click', function(event) {
+        sections.forEach(section => {
+            const toggle = section.querySelector('.filter-toggle');
+            const options = section.querySelector('.filter-options');
+            if (!toggle.contains(event.target) && !options.contains(event.target)) {
+                options.style.height = '0';
+                options.classList.remove('show');
+            }
+        });
+    });
+});
+
 function toggleMenu() {
     const sideNavbar = document.getElementById('side-navbar');
     sideNavbar.classList.toggle('show');

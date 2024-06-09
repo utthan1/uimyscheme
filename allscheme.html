@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myScheme</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/custom_tailwind.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light   " id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="assets/images/logo/logo.svg" width="160px"></a>
+                <a class="navbar-toggler" onclick="toggleMenu()">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                        class="ml-2 inline-block  w-8 h-8 !m-0" height="1em" width="1em"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"></path>
+                    </svg>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item sign_in_btn mx-3">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                Sign In
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right-long"
+                                    class="svg-inline--fa fa-arrow-right-long fa-lg ml-2 inline-block" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="language-dropdown ">
+                                <button class="language-button mx-2"><img
+                                        src="assets/images/icons/lang.svg" /></button><span>Eng</span>
+                                <ul class="language-options">
+                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">हिंदी</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                <button id="toggle-button">Toggle Dark Mode</button>
+              </li> -->
+                    </ul>
+                </div>
+            </div>
+            <aside class="side-navbar" id="side-navbar">
+                <button class="close-btn" onclick="toggleMenu()">X</button>
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign In</a>
+                    </li>
+                </ul>
+            </aside>
+        </nav>
+    </div>
+
+    <main>
+        <div class="grid grid-cols-4 gap-4 container mx-auto px-4 mt-5 relative">
+            <div class="sm:col-span-1 sm:block hidden ">
+                <div class="rounded-md shadow-sm py-4 top-24">
+                    <div class="px-2 md:px-4">
+                        <div
+                            class="flex-row justify-between items-center border-0 border-solid border-b-2 border-gray-300 pb-2 hidden sm:flex">
+                            <h2 class="text-base text-blue-900 dark:text-white font-semibold">Filter By</h2><button
+                                class="outline-none text-green-700 dark:text-green-500 text-base font-semibold opacity-40  !cursor-not-allowed">Reset
+                                Filters</button>
+                        </div>
+                        <div class="my-3"><span class="text-base font-semibold text-dark dark:text-white">State</span>
+                            <div class="mt-1 dark:bg-dark dark:border-gray-600 css-2b097c-container"><span
+                                    aria-live="polite" aria-atomic="false" aria-relevant="additions text"
+                                    class="css-7pg0cj-a11yText"></span>
+                                <div class="facet__control css-yk16xz-control">
+                                    <div class="facet__value-container facet__value-container--is-multi css-1hwfws3 w-100">
+                                        <div class="facet__placeholder css-1wa3eu0-placeholder">Select</div>
+                                        <div class="custom-dropdown">
+                                            <ul class="custom-dropdown-list">
+                                                <li class="custom-dropdown-item">Option 1</li>
+                                                <li class="custom-dropdown-item">Option 2</li>
+                                                <li class="custom-dropdown-item">Option 3</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle">
+                                <span class="text-base font-semibold text-dark dark:text-white">Gender</span>
+                                <span class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center">
+                                        <input type="checkbox" class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600" aria-labelledby="All">
+                                        <span class="text-sm text-dark hover:underline truncate dark:text-white">All</span>
+                                    </div>
+                                    <span class="text-semibold text-xs text-dark dark:text-white">281</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center">
+                                        <input type="checkbox" class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600" aria-labelledby="Female">
+                                        <span class="text-sm text-dark hover:underline truncate dark:text-white">Female</span>
+                                    </div>
+                                    <span class="text-semibold text-xs text-dark dark:text-white">14</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center">
+                                        <input type="checkbox" class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600" aria-labelledby="Male">
+                                        <span class="text-sm text-dark hover:underline truncate dark:text-white">Male</span>
+                                    </div>
+                                    <span class="text-semibold text-xs text-dark dark:text-white">10</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3"><span class="text-base font-semibold text-dark dark:text-white">Age</span>
+                            <div class="mt-1 dark:bg-dark dark:border-gray-600 css-2b097c-container"><span
+                                    aria-live="polite" aria-atomic="false" aria-relevant="additions text"
+                                    class="css-7pg0cj-a11yText"></span>
+                                <div class="facet__control css-yk16xz-control">
+                                    <div class="facet__value-container facet__value-container--is-multi css-1hwfws3 w-100">
+                                        <div class="facet__placeholder css-1wa3eu0-placeholder">Select</div>
+                                        <div class="custom-dropdown">
+                                            <ul class="custom-dropdown-list">
+                                                <li class="custom-dropdown-item">Option 1</li>
+                                                <li class="custom-dropdown-item">Option 2</li>
+                                                <li class="custom-dropdown-item">Option 3</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle"><span
+                                    class="text-base font-semibold text-dark dark:text-white">Caste</span><span
+                                    class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform"><svg
+                                        stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></span></div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="All"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">All</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">260</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Scheduled Caste (SC)"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Scheduled
+                                            Caste (SC)</span></div><span
+                                        class="text-semibold text-xs text-dark dark:text-white ">15</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="General"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">General</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">10</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Scheduled Tribe (ST)"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Scheduled
+                                            Tribe (ST)</span></div><span
+                                        class="text-semibold text-xs text-dark dark:text-white ">10</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Other Backward Class (OBC)"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Other
+                                            Backward Class (OBC)</span></div><span
+                                        class="text-semibold text-xs text-dark dark:text-white ">4</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3"><span class="text-base font-semibold text-dark dark:text-white">Ministry
+                                Name</span>
+                            <div class="mt-1 dark:bg-dark dark:border-gray-600 css-2b097c-container"><span
+                                    aria-live="polite" aria-atomic="false" aria-relevant="additions text"
+                                    class="css-7pg0cj-a11yText"></span>
+                                    <div class="facet__control css-yk16xz-control">
+                                        <div class="facet__value-container facet__value-container--is-multi css-1hwfws3 w-100">
+                                            <div class="facet__placeholder css-1wa3eu0-placeholder">Select</div>
+                                            <div class="custom-dropdown">
+                                                <ul class="custom-dropdown-list">
+                                                    <li class="custom-dropdown-item">Option 1</li>
+                                                    <li class="custom-dropdown-item">Option 2</li>
+                                                    <li class="custom-dropdown-item">Option 3</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle"><span
+                                    class="text-base font-semibold text-dark dark:text-white">Residence</span><span
+                                    class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform"><svg
+                                        stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></span></div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Both"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Both</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">230</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Rural"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Rural</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">62</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle"><span
+                                    class="text-base font-semibold text-dark dark:text-white">Minority</span><span
+                                    class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform"><svg
+                                        stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></span></div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="No"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">No</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">294</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Yes"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Yes</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle"><span
+                                    class="text-base font-semibold text-dark dark:text-white">Differently
+                                    Abled</span><span
+                                    class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform"><svg
+                                        stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></span></div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="No"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">No</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">293</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Yes"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Yes</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle"><span
+                                    class="text-base font-semibold text-dark dark:text-white">Benefit Type</span><span
+                                    class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform"><svg
+                                        stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></span></div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Cash"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Cash</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">163</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="In Kind"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">In
+                                            Kind</span></div><span
+                                        class="text-semibold text-xs text-dark dark:text-white ">68</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Composite"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Composite</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">64</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle"><span
+                                    class="text-base font-semibold text-dark dark:text-white">Employment
+                                    Status</span><span
+                                    class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform"><svg
+                                        stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></span></div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="All"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">All</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">213</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Self-Employed/ Entrepreneur"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Self-Employed/
+                                            Entrepreneur</span></div><span
+                                        class="text-semibold text-xs text-dark dark:text-white ">53</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Employed"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Employed</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">29</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 filter-button">
+                            <div class="flex justify-between items-center cursor-pointer filter-toggle"><span
+                                    class="text-base font-semibold text-dark dark:text-white">Student</span><span
+                                    class="text-base font-bold text-green-700 mb-1 dark:text-green-500 transition-transform"><svg
+                                        stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></span></div>
+                            <div class="overflow-hidden h-0 filter-options">
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="No"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">No</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">294</span>
+                                </div>
+                                <div class="flex flex-row justify-between items-center cursor-pointer my-2">
+                                    <div class="w-[85%] flex flex-row items-center"><input type="checkbox"
+                                            class="mr-3 rounded border border-solid border-gray-300 text-green-700 cursor-pointer dark:bg-dark dark:border-gray-600"
+                                            aria-labelledby="Yes"><span
+                                            class=" text-sm text-dark hover:underline truncate dark:text-white ">Yes</span>
+                                    </div><span class="text-semibold text-xs text-dark dark:text-white ">1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sm:col-span-3 col-span-4   items-center justify-center ">
+                <form class="w-full flex h-10 items-center relative"><input type="text" name="query"
+                        class="w-full h-full px-2 pr-12 border border-solid border-gray-200 dark:border-gray-600 rounded-md bg-white dark:bg-dark hover:border-secondary focus:border-secondary focus:outline-none catAgriculture dark:text-white"
+                        placeholder="Search" aria-labelledby="Search schemes" value=""><button disabled=""
+                        class="absolute right-0 h-10 outline-none rounded-tr-md rounded-br-md rounded-bl-3xl bg-secondary catAgriculture dark:!bg-indigo-100 px-4 py-2 cursor-not-allowed "
+                        aria-label="Search" type="button"><svg stroke="currentColor" fill="currentColor"
+                            stroke-width="0" viewBox="0 0 512 512" class="text-white dark:text-dark" height="1em"
+                            width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                            </path>
+                        </svg></button></form>
+                <div class="flex items-center justify-start gap-1 pl-1 mt-1"><svg stroke="currentColor"
+                        fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                        class="text-gray-500 dark:text-indigo-100" height="16" width="16"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M0 0h24v24H0V0z"></path>
+                        <path
+                            d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z">
+                        </path>
+                    </svg><label class="text-gray-500 dark:text-indigo-100 font-normal text-sm">For an exact match, put
+                        the words in quotes. For example: "Scheme Name".</label></div>
+                <div class=" mt-4">
+                    <div
+                        class="overflow-x-auto overflow-y-hidden flex flex-row items-center mb-2 border-0 border-b border-solid border-gray-200 pr-2 md:pr-4 no-scrollbar border-none ">
+                        <div
+                            class="px-4 py-2 flex items-start justify-center capitalize hover:cursor-pointer border-0 border-b-3 border-solid border-green-600 bg-green-50 dark:bg-[#050D16] dark:text-white shadow-md rounded-t-md ">
+                            <span
+                                class="text-md leading-8   text-gray-700  capitalize font-heading whitespace-nowrap font-semibold  dark:text-white ">All
+                                Schemes</span>
+                        </div>
+                        <div
+                            class="px-4 py-2 flex items-start justify-center capitalize hover:cursor-pointer bg-white dark:bg-dark dark:text-white">
+                            <span
+                                class="text-md leading-8   text-gray-700  capitalize font-heading whitespace-nowrap font-medium  dark:text-gray-300">State
+                                Schemes</span>
+                        </div>
+                        <div
+                            class="px-4 py-2 flex items-start justify-center capitalize hover:cursor-pointer bg-white dark:bg-dark dark:text-white">
+                            <span
+                                class="text-md leading-8   text-gray-700  capitalize font-heading whitespace-nowrap font-medium  dark:text-gray-300">Central
+                                Schemes</span>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+                <div
+                    class="fixed bottom-0 left-0 right-0 sm:hidden border-0 border-t border-solid border-gray-200 dark:border-gray-700 z-1">
+                    <div class=" flex flex-row items-center justify-between bg-white dark:bg-dark px-4 py-3 shadow-md">
+                        <button aria-label="Action Button" class=" flex items-center  px-5 py-2.5 text-base  rounded-md   undefined undefined secondary !text-indigo-600 hover:!text-indigo-700 bg-secondary text-white hover:bg-primary   transition ease-in-out font-medium leading-none !rounded-full flex-1 ml-1 !justify-center 
+                undefined " title=""><span>Sort</span><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 24 24" class="ml-2 inline-block  w-4 h-4" height="1em" width="1em"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 16H4l6 6V2H8zm6-11v17h2V8h4l-6-6z"></path>
+                            </svg></button><button aria-label="Action Button" class=" flex items-center  px-5 py-2.5 text-base  rounded-md   undefined undefined green  bg-secondary text-white hover:bg-primary   transition ease-in-out font-medium leading-none !rounded-full flex-1 ml-1 !justify-center 
+                undefined " title=""><span>Filter</span><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                viewBox="0 0 24 24" class="ml-2 inline-block  w-4 h-4" height="1em" width="1em"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill="none" d="M0 0h24m0 24H0"></path>
+                                <path
+                                    d="M7 6h10l-5.01 6.3L7 6zm-2.75-.39C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39A.998.998 0 0018.95 4H5.04c-.83 0-1.3.95-.79 1.61z">
+                                </path>
+                                <path fill="none" d="M0 0h24v24H0V0z"></path>
+                            </svg></button>
+                    </div>
+                </div>
+                <div class="flex flex-row items-center justify-between my-4">
+                    <div class="flex flex-row items-center">
+                        <div class="flex flex-wrap items-center gap-2 ml-2 ">
+                            <div class="text-base font-medium text-cyan-700 mb-0 ">We found <span
+                                    class="text-lg font-bold text-blue-900 dark:text-white font-heading">295</span>
+                                schemes based on your preferences</div>
+                        </div>
+                    </div>
+                    <div
+                        class="sm:hidden h-screen w-screen bg-black/20 fixed top-0 left-0 z-50  transform  transition-all ease-in-out  translate-y-full   ">
+                        <div class="relative h-full w-full bottom-0 ">
+                            <div class="absolute w-full max-h-[90%] overflow-y-scroll bottom-0 bg-white dark:bg-dark px-6 pt-4 pb-[15%] rounded-tr-lg rounded-tl-lg 
+           translate-y-full">
+                                <div class="flex flex-row items-center justify-between">
+                                    <h3 class="text-base dark:text-white font-semibold ">Sort</h3><svg
+                                        stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        class="text-green-600 cursor-pointer" height="20" width="20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="none" d="M0 0h24v24H0z"></path>
+                                        <path
+                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="flex flex-row items-center justify-between my-1 cursor-pointer"><span
+                                            class="text-sm dark:text-white ">Central Schemes On Top</span><input
+                                            type="radio" name="sort" class="text-green-600 cursor-pointer"
+                                            aria-labelledby="Central Schemes On Top" value="level-asc"></div>
+                                    <div class="flex flex-row items-center justify-between my-1 cursor-pointer"><span
+                                            class="text-sm dark:text-white ">Relevance</span><input type="radio"
+                                            name="sort" class="text-green-600 cursor-pointer"
+                                            aria-labelledby="Relevance" value="multiple_sort"></div>
+                                    <div class="flex flex-row items-center justify-between my-1 cursor-pointer"><span
+                                            class="text-sm dark:text-white ">Scheme Name (A-&gt;Z)</span><input
+                                            type="radio" name="sort" class="text-green-600 cursor-pointer"
+                                            aria-labelledby="Scheme Name (A->Z)" value="schemename-asc"></div>
+                                    <div class="flex flex-row items-center justify-between my-1 cursor-pointer"><span
+                                            class="text-sm dark:text-white ">Scheme Name (Z-&gt;A)</span><input
+                                            type="radio" name="sort" class="text-green-600 cursor-pointer"
+                                            aria-labelledby="Scheme Name (Z->A)" value="schemename-desc"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row items-center hidden sm:flex">
+                        <h5
+                            class="hidden md:block text-gray-500 dark:text-gray-300 tracking-wide text-sm font-semibold whitespace-nowrap">
+                            Sort : </h5><select
+                            class="border-0 py-0 pl-1 bg-transparent outline-none text-base w-32 dark:text-white"
+                            aria-label="Sort by">
+                            <option value="level-asc">Central Schemes On Top</option>
+                            <option value="multiple_sort">Relevance</option>
+                            <option value="schemename-asc">Scheme Name (A-&gt;Z)</option>
+                            <option value="schemename-desc">Scheme Name (Z-&gt;A)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class=" gap-4  grid grid-cols-1 !grid-cols-1 md:grid-cols-2  lg:grid-cols-4 undefined">
+                        <div
+                            class="mx-auto rounded-xl shadow-md overflow-hidden w-full group hover:shadow-lg bg-white dark:bg-dark dark:shadow-xl dark:hover:shadow-2xl">
+                            <div class="lg:shrink-0"></div>
+                            <div class="p-4 lg:p-8 w-full">
+                                <div class="flex flex-row items-center justify-between">
+                                    <div class="flex flex-col">
+                                        <h2><a class="undefined block text-lg lg:text-[22px] leading-tight font-medium  dgroup-hover:text-darkIndigo-900 text-[#24262B]  dark:text-white dark:group-hover:text-white  normal-case "
+                                                href="/schemes/indagff"><span>India Afghanistan Fellowship</span></a>
+                                        </h2><span
+                                            class="mt-3 text-[#24262B] line-clamp-2 dark:text-indigo-100 text-xs lg:text-sm "><span>India-Afghanistan
+                                                Fellowship Programme started in 2010-11 with 115 fellowships every year
+                                                for pursuing Masters and Ph.D in Indian Agricultural Universities, to
+                                                support the agricultural human resource development in Afghanistan
+                                                through formal education of Afghanistan scientists/faculty and
+                                                students.</span></span>
+                                        <h2
+                                            class="mt-3 font-normal text-sm lg:text-base text-raven cursor-pointer hover:underline dark:text-indigo-100 ">
+                                            Ministry Of Agriculture and Farmers Welfare</h2>
+                                    </div>
+                                </div>
+                                <div
+                                    class=" grid grid-cols-1 md:flex flex-wrap  gap-4  justify-between items-center  mt-3 w-full">
+                                    <div class="lg:w-[90%]">
+                                        <div
+                                            class=" flex items-center  gap-4  justify-between items-center !justify-start !gap-1 flex-wrap">
+                                            <div title="Afghanistan"
+                                                class=" bg-transparent border border-solid hover:border-transparent  border-green-700 text-green-700 hover:bg-green-700 dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500  dark:hover:text-white  rounded  py-1.5 px-2.5 text-xs   inline-block font-medium leading-none  text-left md:text-center rounded hover:shadow-md mr-2 mt-1 !rounded-full   cursor-pointer ">
+                                                <span>Afghanistan</span>
+                                            </div>
+                                            <div title="Agricultural"
+                                                class=" bg-transparent border border-solid hover:border-transparent  border-green-700 text-green-700 hover:bg-green-700 dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500  dark:hover:text-white  rounded  py-1.5 px-2.5 text-xs   inline-block font-medium leading-none  text-left md:text-center rounded hover:shadow-md mr-2 mt-1 !rounded-full   cursor-pointer ">
+                                                <span>Agricultural</span>
+                                            </div>
+                                            <div title="Fellowship"
+                                                class=" bg-transparent border border-solid hover:border-transparent  border-green-700 text-green-700 hover:bg-green-700 dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500  dark:hover:text-white  rounded  py-1.5 px-2.5 text-xs   inline-block font-medium leading-none  text-left md:text-center rounded hover:shadow-md mr-2 mt-1 !rounded-full   cursor-pointer ">
+                                                <span>Fellowship</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 ">
+                        <ul class=" list-none  flex flex-wrap items-center justify-center"><svg stroke="currentColor"
+                                fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                class="  text-darkblue-900 dark:text-white cursor-pointer mr-2 opacity-50 !cursor-not-allowed"
+                                height="15" width="15" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path>
+                            </svg>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              !text-white bg-green-700 ">1</li>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              text-darkblue-900 dark:text-gray-300">2</li>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              text-darkblue-900 dark:text-gray-300">3</li>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              text-darkblue-900 dark:text-gray-300">4</li>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              text-darkblue-900 dark:text-gray-300">5</li>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              text-darkblue-900 dark:text-gray-300">6</li>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              text-darkblue-900 dark:text-gray-300">7</li>
+                            <li
+                                class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer text-dark dark:text-white">
+                                …</li>
+                            <li class="h-8 w-8 text-darkblue-900 flex items-center justify-center text-base mx-1 rounded-full hover:underline hover:cursor-pointer 
+              text-darkblue-900 dark:text-gray-300">30</li><svg stroke="currentColor" fill="currentColor"
+                                stroke-width="0" viewBox="0 0 24 24"
+                                class="ml-2 text-darkblue-900 dark:text-white cursor-pointer" height="1em" width="1em"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                <path d="M6.23 20.23L8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
+                            </svg>
+                        </ul>
+                    </div>
+                    <div class="mt-[20%] sm:mt-2"></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row my-5">
+                    <div class="col-md-3 ">
+                        <div class="flex-1">
+                            <div class="flex gap-2 align-items-center">
+                                <p class="text-white text-white/80 hover:text-white"><span>©2024</span></p>
+                                <div class="relative h-6 w-36 lg:h-8 lg:w-48">
+                                    <a class="undefined block normal-case" href="/">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                            <img alt="myScheme" title="myScheme"
+                                                src="https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg"
+                                                decoding="async" data-nimg="fill" class="border-0"
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                                                srcset="https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 640w, https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 750w, https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 828w, https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 1080w, https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 1200w, https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 1920w, https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 2048w, https://cdn.myscheme.in/images/logos/myscheme-logo-white.svg 3840w"
+                                                sizes="100vw">
+                                            <noscript></noscript>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center mt-4">
+                                <span class="text-sm text-white mr-2">Powered by</span>
+                                <span
+                                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
+                                    <span
+                                        style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
+                                        <img alt="" aria-hidden="true"
+                                            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2780%27%20height=%2740%27/%3e"
+                                            style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
+                                    </span>
+                                    <img alt="Digital India"
+                                        src="https://cdn.myscheme.in/images/logos/digital-india-white.svg"
+                                        decoding="async" data-nimg="intrinsic" class="border-0"
+                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                                        srcset="https://cdn.myscheme.in/images/logos/digital-india-white.svg 1x, https://cdn.myscheme.in/images/logos/digital-india-white.svg 2x">
+                                    <noscript></noscript>
+                                </span>
+                            </div>
+                            <div class="flex flex-col text-white text-white/80 text-sm hover:text-white mt-1 mb-0">
+                                <span class="cursor-pointer">Digital India Corporation(DIC)</span>
+                                <span class="cursor-pointer">Ministry of Electronics & IT (MeitY)</span>
+                                <span class="cursor-pointer">Government of India<sup>®</sup></span>
+                            </div>
+                            <div class="flex items-center flex-row mt-2 gap-3 sm:gap-2">
+                                <div
+                                    class="cursor-pointer h-8 w-8 rounded-full border border-gray-400 flex items-center justify-center text-white">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                        viewBox="0 0 448 512" height="15" width="15" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <!-- Add more social icons here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flex-1">
+                            <h2 class="text-white text-2xl font-heading font-semibold mb-6">Quick Links</h2>
+                            <ul class="grid grid-cols-1 text-white items-center gap-2">
+                                <li title="About Us"
+                                    class="flex hover:pl-1 duration-500 gap-2 opacity-80 hover:opacity-100 transition-all ease-in-out text-sm">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <a class="undefined block normal-case" href="/about">About Us</a>
+                                </li>
+                                <li title="Contact Us"
+                                    class="flex hover:pl-1 duration-500 gap-2 opacity-80 hover:opacity-100 transition-all ease-in-out text-sm">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <a class="undefined block normal-case" href="/contact">Contact Us</a>
+                                </li>
+                                <li title="Screen Reader"
+                                    class="flex hover:pl-1 duration-500 gap-2 opacity-80 hover:opacity-100 transition-all ease-in-out text-sm">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <a class="undefined block normal-case" href="/screen-reader">Screen Reader</a>
+                                </li>
+                                <li title="Accessibility Statement"
+                                    class="flex hover:pl-1 duration-500 gap-2 opacity-80 hover:opacity-100 transition-all ease-in-out text-sm">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <a class="undefined block normal-case" href="/accessibility-statement">Accessibility
+                                        Statement</a>
+                                </li>
+                                <li title="Frequently Asked Questions"
+                                    class="flex hover:pl-1 duration-500 gap-2 opacity-80 hover:opacity-100 transition-all ease-in-out text-sm">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <a class="undefined block normal-case" href="/faqs">Frequently Asked Questions</a>
+                                </li>
+                                <li title="Disclaimer"
+                                    class="flex hover:pl-1 duration-500 gap-2 opacity-80 hover:opacity-100 transition-all ease-in-out text-sm">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <a class="undefined block normal-case" href="/disclaimer">Disclaimer</a>
+                                </li>
+                                <li title="Terms & Conditions"
+                                    class="flex hover:pl-1 duration-500 gap-2 opacity-80 hover:opacity-100 transition-all ease-in-out text-sm">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                        height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <a class="undefined block normal-case" href="/terms-conditions">Terms &
+                                        Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flex-1">
+                            <h2 class="text-white text-2xl font-heading font-semibold mb-6">Useful Links</h2>
+                            <ul class="grid grid-cols-1 text-white items-center !grid !grid-cols-3 !gap-1 gap-2">
+                                <li title=""
+                                    class="bg-white dark:bg-dark p-1 rounded-md duration-500 border-3 border-solid border-darkIndigo-900 dark:border-dark hover:border-gray-500 transition-all ease-in-out text-sm cursor-pointer">
+                                    <div class="relative w-full h-10">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                            <img alt="di" title="Digital India"
+                                                src="assets/images/logo/typ-company/di.png"
+                                                sizes="100vw"><noscript></noscript>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li title=""
+                                    class="bg-white dark:bg-dark p-1 rounded-md duration-500 border-3 border-solid border-darkIndigo-900 dark:border-dark hover:border-gray-500 transition-all ease-in-out text-sm cursor-pointer">
+                                    <div class="relative w-full h-10">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                            <img alt="di" title="Digital India"
+                                                src="assets/images/logo/typ-company/di.png"
+                                                sizes="100vw"><noscript></noscript>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li title=""
+                                    class="bg-white dark:bg-dark p-1 rounded-md duration-500 border-3 border-solid border-darkIndigo-900 dark:border-dark hover:border-gray-500 transition-all ease-in-out text-sm cursor-pointer">
+                                    <div class="relative w-full h-10">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                            <img alt="di" title="Digital India"
+                                                src="assets/images/logo/typ-company/di.png"
+                                                sizes="100vw"><noscript></noscript>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li title=""
+                                    class="bg-white dark:bg-dark p-1 rounded-md duration-500 border-3 border-solid border-darkIndigo-900 dark:border-dark hover:border-gray-500 transition-all ease-in-out text-sm cursor-pointer">
+                                    <div class="relative w-full h-10">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                            <img alt="di" title="Digital India"
+                                                src="assets/images/logo/typ-company/di.png"
+                                                sizes="100vw"><noscript></noscript>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li title=""
+                                    class="bg-white dark:bg-dark p-1 rounded-md duration-500 border-3 border-solid border-darkIndigo-900 dark:border-dark hover:border-gray-500 transition-all ease-in-out text-sm cursor-pointer">
+                                    <div class="relative w-full h-10">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                            <img alt="di" title="Digital India"
+                                                src="assets/images/logo/typ-company/di.png"
+                                                sizes="100vw"><noscript></noscript>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flex-1">
+                            <h2 class="text-white text-2xl font-heading font-semibold mb-6">Get in touch</h2>
+                            <p class="text-white/80 text-sm leading-relaxed flex gap-1 items-start">
+                                <span>4th Floor, NeGD, Electronics Niketan, 6 CGO Complex, Lodhi Road, New Delhi -
+                                    110003, India</span>
+                            </p>
+                            <div class="mb-4">
+                                <p class="text-white/80 hover:text-white underline text-sm font-normal mb-0">
+                                    support-myscheme[at]digitalindia[dot]gov[dot]in</p>
+                                <p class="text-white/80 text-sm font-normal my-4">(011) 24303714</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/custom_script.js"></script>
+</body>
+
+</html>
