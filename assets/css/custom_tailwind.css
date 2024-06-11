@@ -5,6 +5,20 @@
 .bg-\[\#d3f8e1\] { background-color: #d3f8e1; }
 .bg-\[\#e2faeb\] { background-color: #e2faeb; }
 .bg-\[\#f0fdf5\] { background-color: #f0fdf5; }
+.\!grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+@media (min-width: 1024px) {
+    .lg\:\!grid-cols-5 {
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    }
+}
+
+.\!gap-x-14 {
+    -moz-column-gap: 3.5rem !important;
+    column-gap: 3.5rem !important;
+}
 
 @media (min-width: 1024px) {
     .lg\:\!w-3\/5 {
@@ -12,9 +26,6 @@
     }
 }
 
-.\!grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-}
 
 .css-yk16xz-control {
     -webkit-box-align: center;
@@ -42,4 +53,8 @@
 
 .filter-options.show {
     height: auto;
+}
+
+.mb-5 {
+    margin-bottom: 1.25rem !important;
 }

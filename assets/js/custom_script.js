@@ -114,3 +114,21 @@ function toggleMenu() {
     const sideNavbar = document.getElementById('side-navbar');
     sideNavbar.classList.toggle('show');
 }
+
+function autoSwitchTabs() {
+    // Get all the side tabs
+    const sideTabs = document.querySelectorAll('.side-tabs');
+    // Get the index of the currently active tab
+    const currentIndex = Array.from(sideTabs).findIndex(tab => tab.classList.contains('active'));
+    // Calculate the index of the next tab
+    const nextIndex = (currentIndex + 1) % sideTabs.length;
+    // Remove the 'active' class from the current tab
+    sideTabs[currentIndex].classList.remove('active');
+    // Add the 'active' class to the next tab
+    sideTabs[nextIndex].classList.add('active');
+    // Scroll the page to the top of the next tab
+    sideTabs[nextIndex].scrollIntoView({ behavior: 'smooth' });
+}
+
+// Call the autoSwitchTabs function every 5 seconds (5000 milliseconds)
+setInterval(autoSwitchTabs, 5000);
