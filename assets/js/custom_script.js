@@ -110,25 +110,66 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function toggleMenu() {
-    const sideNavbar = document.getElementById('side-navbar');
-    sideNavbar.classList.toggle('show');
-}
 
-function autoSwitchTabs() {
-    // Get all the side tabs
-    const sideTabs = document.querySelectorAll('.side-tabs');
-    // Get the index of the currently active tab
-    const currentIndex = Array.from(sideTabs).findIndex(tab => tab.classList.contains('active'));
-    // Calculate the index of the next tab
-    const nextIndex = (currentIndex + 1) % sideTabs.length;
-    // Remove the 'active' class from the current tab
-    sideTabs[currentIndex].classList.remove('active');
-    // Add the 'active' class to the next tab
-    sideTabs[nextIndex].classList.add('active');
-    // Scroll the page to the top of the next tab
-    sideTabs[nextIndex].scrollIntoView({ behavior: 'smooth' });
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('#details-page .nav-item');
+    const sections = document.querySelectorAll('#details-page .nav-content');
 
-// Call the autoSwitchTabs function every 5 seconds (5000 milliseconds)
-setInterval(autoSwitchTabs, 5000);
+    // Add click event to each nav item
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Remove active class from all nav items
+            navItems.forEach(nav => nav.classList.remove('active'));
+            // Add active class to the clicked nav item
+            this.classList.add('active');
+
+            // Scroll to the corresponding section
+            const targetId = this.getAttribute('data-target');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Ensure the nav item is visible in the viewport
+            const scrollContainer = this.closest('.overflow-x-auto');
+            if (scrollContainer) {
+                const offsetLeft = this.offsetLeft;
+                scrollContainer.scrollTo({
+                    left: offsetLeft - 20, // Adjust as necessary
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add scroll event to window
+    window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 50 && window.pageYOffset < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-target') === `#${current}`) {
+                item.classList.add('active');
+                // Ensure the nav item is visible in the viewport
+                const scrollContainer = item.closest('.overflow-x-auto');
+                if (scrollContainer) {
+                    const offsetLeft = item.offsetLeft;
+                    scrollContainer.scrollTo({
+                        left: offsetLeft - 20, // Adjust as necessary
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
+
+
+
