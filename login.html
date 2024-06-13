@@ -1,232 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/getstarted.css">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/getstarted.css">
 </head>
+
 <body>
     <main role="main" class="container p-2 p-sm-3">
         <nav class="navbar navbar-expand-lg navbar-light nav justify-content-center">
 
-    <a class="navbar-brand order-1 order-lg-1" href="https://meripehchaan.gov.in/" target="_blank">
-        <img src="https://dl-cdn.dl6.in/nsso/images/meripahchaan.png" width="153.3" height="50px" alt="logo"></a>
-            </nav>
-        <div class="form p-3">
-<div class="card-body">
-                        <h4 class="card-title mb-4 ">Sign In to your account <span id="dl_signin_header_span" class="d-inline p-0"><span class="p-0">via</span><strong class="text-primary "> DigiLocker</strong></span></h4>
-                        
-    <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-            <li class="nav-item " role="presentation">
-                <button class="nav-link active" onclick="mobile()" type="button" id="mobilebtn" data-bs-toggle="pill" data-bs-target="#mobiletab" role="tab" aria-controls="mobiletab" aria-selected="true">Mobile</button>
-            </li>
-            <li class="nav-item " role="presentation">
-                <button class="nav-link" onclick="username()" type="button" id="usernamebtn" data-bs-toggle="pill" data-bs-target="#usernametab" role="tab" aria-controls="usernametab" aria-selected="false">Username</button>
-            </li>
-            <li class="nav-item " role="presentation">
-                <button onclick="others()" class="nav-link" type="button" id="otherbtn" data-bs-toggle="pill" data-bs-target="#otherstab" role="tab" aria-controls="otherstab" aria-selected="false">Others</button>
-            </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-        <!-- Email tab -->
-        <!-- Email tab closed -->
-        <!-- Mobile tab -->
-            <div class="tab-pane fade active show" id="mobiletab" role="tabpanel" aria-labelledby="pills-mobile-tab">
-                <form method="post" action="/profile.html" class="loader_onsubmit">
-                    <input type="hidden" name="meripehchaan" value="b2dca2eba3617da648236a54cfe3a318">
-                    <input type="hidden" name="ci_key" value="6295b1d6dc44613c6659a9dca71ef942">
-                    <div class="form-group">
-                                                                    <input type="text" placeholder="Mobile*" class="form-control" id="mobilenumber"  name="mobilenumber" autocomplete="off">
-                            <div class="invalid-feedback d-block input-error" id="pass-message4">
-                                <small></small>
-                            </div>
-                                                            </div>
-                    <div class="alert alert-danger mt-3" role="alert" style="display:none;">
-                        <strong>This mobile is associated with multiple accounts, please select one to Sign in </strong>
-                        
-                    </div>
-                    <div class="form-group d-block" id="mobile_pin_div">
-                        <input type="password" id="passwordmobile" placeholder="PIN*" value="" maxlength="6" minlength="6" pattern="[0-9]*" inputmode="numeric"  class="form-control" onkeyup="checkMobileLogin(this)" onblur="checkMobileLogin(this, 'blur');" autocomplete="off">
-                        <div class="invalid-feedback d-block input-error" id="pass-message2">
-                            <small></small>
-                        </div>
-                    </div>
-                    <div class="form-group mt-0 text-end" id="mobileForgotpin"> <a href="/signin/forgot_pin" tabindex="4"><label style="cursor:pointer">Forgot security PIN?</label> </a></div>
-                    <div class="form-group ">
-                        <div class="form-check ">
-                            <input class="form-check-input" type="checkbox" value="Y" name="pin_less_auth" id="mobile_pin_less_auth" >
-                            <label class="form-check-label" for="mobile_pin_less_auth">PIN less authentication
-                            </label>
-                        </div>
+        </nav>
+        <div class="form p-3 col-lg-6">
+            <div class="card-body">
+                <h4 class="card-title mb-4 ">Sign In to your account </h4>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="2" name="terms" id="terms_mobile" >
-                            <label class="form-check-label" for="terms_mobile">
-                                I consent to <a href="https://meripehchaan.gov.in/welcome/terms" target="_blank">terms of use.</a>
-                            </label>
-                        </div>
-                    </div>
-
-                            <div class="form-group text-center">
-                        <div class="d-grid gap-2">
-                            <a href="/profile.html">
-                                <button type="button" id="submitbtn1" class="btn btn-success btn-lg btn-block " >Sign In</button>
-                            </a>
-                        </div>
-                    </div>
-                <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA=="></form>
-            </div>
-        <!-- Mobile tab closed -->
-        <!-- Username tab -->
-            <div class="tab-pane fade" id="usernametab" role="tabpanel" aria-labelledby="pills-username-tab">
-                <form method="post" action="/signin/index" onsubmit="FormSubmit()">
-                    <input type="hidden" name="meripehchaan" value="b2dca2eba3617da648236a54cfe3a318">
-                    <input type="hidden" name="ci_key" value="6295b1d6dc44613c6659a9dca71ef942">
-                    <div class="form-group">
-                        <input name="username" placeholder="Username*" id="username" value="" type="text" class="form-control " required="" autocomplete="off" maxlength="40" minlength="2" onkeyup="checkUsernameLogin(this)" onblur="checkUsernameLogin(this, 'blur')">
-                        <div class="invalid-feedback d-block input-error" id="username-message">  
-                            <small></small>
-                        </div>
-                    </div>
-                    <div class="form-group d-block" id="username_pin_div">
-                        <input type="password" placeholder="PIN*" value="" maxlength="6" id="password" pattern="[0-9]*" inputmode="numeric" onkeypress="return isNumberKey(event)" required="" name="pin" class="form-control" autocomplete="off" onkeyup="checkUsernameLogin(this)" onblur="checkUsernameLogin(this, 'blur')">
-                        <div class="invalid-feedback d-block input-error" id="pass-message">
-                            <small></small>
-                        </div>
-                    </div>
-                    <div class="form-group mt-0 text-end" id="userForgotpin"> <a href="/signin/forgot_pin" tabindex="4"><label style="cursor:pointer">Forgot security PIN?</label> </a></div>
-                    <div class="form-group ">
-                        <div class="form-check ">
-                            <input class="form-check-input" type="checkbox" value="Y" name="pin_less_auth" id="username_pin_less_auth" onchange="checkUsernameLogin(this)">
-                            <label class="form-check-label" for="username_pin_less_auth">PIN less authentication
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="3" name="terms" id="terms1" required="" onchange="checkUsernameLogin(this)">
-                            <label class="form-check-label" for="terms1">
-                                I consent to <a href="https://meripehchaan.gov.in/welcome/terms" target="_blank">terms of use.</a>
-                            </label>
-                        </div>
-                    </div>
-                                                        <div class="form-group text-center">
-                        <div class="d-grid gap-2">
-                            <a href="profile.html">
-                                <button type="submit" id="submitbtn1" class="btn btn-success btn-lg btn-block " >Sign In</button>
-                            </a>
-                            
-                        </div>
-                    </div>
-                <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA=="></form>
-            </div>
-        <!-- Username tab closed -->
-        <!-- Others tab -->
-            <div class="tab-pane fade" id="otherstab" role="tabpanel" aria-labelledby="pills-others-tab">
-                <p class="signintext"></p>
-                <div class="tab-content">
-                    <div id="signup">
-                        <form action="/signin/signin_aadhar" method="post" id="" onsubmit="formSubmit()">
+                <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+                    <li class="nav-item " role="presentation">
+                        <button class="nav-link active" onclick="mobile()" type="button" id="mobilebtn"
+                            data-bs-toggle="pill" data-bs-target="#mobiletab" role="tab" aria-controls="mobiletab"
+                            aria-selected="true">Mobile</button>
+                    </li>
+                    <li class="nav-item " role="presentation">
+                        <button class="nav-link" onclick="username()" type="button" id="usernamebtn"
+                            data-bs-toggle="pill" data-bs-target="#usernametab" role="tab" aria-controls="usernametab"
+                            aria-selected="false">Username</button>
+                    </li>
+                    <li class="nav-item " role="presentation">
+                        <button onclick="others()" class="nav-link" type="button" id="otherbtn" data-bs-toggle="pill"
+                            data-bs-target="#otherstab" role="tab" aria-controls="otherstab"
+                            aria-selected="false">Others</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <!-- Email tab -->
+                    <!-- Email tab closed -->
+                    <!-- Mobile tab -->
+                    <div class="tab-pane fade active show" id="mobiletab" role="tabpanel"
+                        aria-labelledby="pills-mobile-tab">
+                        <form method="post" action="/profile.html" class="loader_onsubmit">
                             <input type="hidden" name="meripehchaan" value="b2dca2eba3617da648236a54cfe3a318">
                             <input type="hidden" name="ci_key" value="6295b1d6dc44613c6659a9dca71ef942">
-                            <div class="user-input-wrp">
-                                <div class="input-group mb-3">
-                                    <select class="form-select" required="" name="other" id="dropdownmenu">
-                                        <option selected="" value="">Select ID</option>
-                                        <option value="Aadhar" name="aadhar" id="aadhar">Aadhaar</option>
-                                        <option value="PAN" name="dl">PAN</option>
-                                        <option value="Driving License" name="pan">Driving License</option>
-                                    </select>
-                                    <input type="hidden" id="vbi" name="vbi">
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="data2">
-                                <input id="validateinput" type="text" onkeyup="validateVBI(this)" onblur="validateVBI(this, 'blur')" placeholder="Enter ID / Number*" name="verify" maxlength="16" value="" class="form-control validateinput" required="" autocomplete="off">
-                                <div class="input-error invalid-feedback d-block" id="id-message">
-                                                                                                                                        </div>
-                            </div>
-                            <div class="form-group d-block" id="others_pin_div">
-                                <input type="password" id="passwordothers" placeholder="PIN*" value="" maxlength="6" minlength="6" pattern="[0-9]*" inputmode="numeric" onkeypress="return isNumberKey(event)" required="" name="pin" class="form-control" onkeyup="validateVBI(this)" onblur="validateVBI(this, 'blur')" autocomplete="off">
-                                <div class="input-error invalid-feedback d-block" id="pass-message3">
+                            <div class="form-group">
+                                <input type="text" placeholder="Mobile*" class="form-control" id="mobilenumber"
+                                    name="mobilenumber" autocomplete="off">
+                                <div class="invalid-feedback d-block input-error" id="pass-message4">
                                     <small></small>
                                 </div>
                             </div>
-                            <div class="form-group mt-0 text-end" id="otherForgotpin"> <a href="/signin/forgot_pin" tabindex="4"><label style="cursor:pointer">Forgot security PIN?</label> </a></div>
+                            <div class="alert alert-danger mt-3" role="alert" style="display:none;">
+                                <strong>This mobile is associated with multiple accounts, please select one to Sign in
+                                </strong>
+
+                            </div>
+                            <div class="form-group d-block" id="mobile_pin_div">
+                                <input type="password" id="passwordmobile" placeholder="PIN*" value="" maxlength="6"
+                                    minlength="6" pattern="[0-9]*" inputmode="numeric" class="form-control"
+                                    onkeyup="checkMobileLogin(this)" onblur="checkMobileLogin(this, 'blur');"
+                                    autocomplete="off">
+                                <div class="invalid-feedback d-block input-error" id="pass-message2">
+                                    <small></small>
+                                </div>
+                            </div>
+                            <div class="form-group mt-0 text-end" id="mobileForgotpin"> <a href="/signin/forgot_pin"
+                                    tabindex="4"><label style="cursor:pointer">Forgot security PIN?</label> </a></div>
                             <div class="form-group ">
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" value="Y" name="pin_less_auth" id="others_pin_less_auth" onchange="validateVBI(this)">
-                                    <label class="form-check-label" for="others_pin_less_auth">PIN less authentication
+                                    <input class="form-check-input" type="checkbox" value="Y" name="pin_less_auth"
+                                        id="mobile_pin_less_auth">
+                                    <label class="form-check-label" for="mobile_pin_less_auth">PIN less authentication
                                     </label>
                                 </div>
+
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="4" name="terms" id="terms3" required="" onchange="validateVBI(this)">
-                                    <label class="form-check-label" for="terms3">
-                                        I consent to <a href="https://meripehchaan.gov.in/welcome/terms" target="_blank">terms of use.</a>
+                                    <input class="form-check-input" type="checkbox" value="2" name="terms"
+                                        id="terms_mobile">
+                                    <label class="form-check-label" for="terms_mobile">
+                                        I consent to <a href="https://meripehchaan.gov.in/welcome/terms"
+                                            target="_blank">terms of use.</a>
                                     </label>
                                 </div>
                             </div>
 
                             <div class="form-group text-center">
                                 <div class="d-grid gap-2">
-                                    <button type="submit" id="submitbtn3" class="btn btn-success btn-lg btn-block " disabled="disabled">Sign In</button>
+                                    <a href="/profile.html">
+                                        <button type="button" id="submitbtn1"
+                                            class="btn btn-success btn-lg btn-block ">Sign In</button>
+                                    </a>
                                 </div>
                             </div>
-                        <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA=="></form>
+                            <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA==">
+                        </form>
                     </div>
-                    <div id="login">
+                    <!-- Mobile tab closed -->
+                    <!-- Username tab -->
+                    <div class="tab-pane fade" id="usernametab" role="tabpanel" aria-labelledby="pills-username-tab">
+                        <form method="post" action="/signin/index" onsubmit="FormSubmit()">
+                            <input type="hidden" name="meripehchaan" value="b2dca2eba3617da648236a54cfe3a318">
+                            <input type="hidden" name="ci_key" value="6295b1d6dc44613c6659a9dca71ef942">
+                            <div class="form-group">
+                                <input name="username" placeholder="Username*" id="username" value="" type="text"
+                                    class="form-control " required="" autocomplete="off" maxlength="40" minlength="2"
+                                    onkeyup="checkUsernameLogin(this)" onblur="checkUsernameLogin(this, 'blur')">
+                                <div class="invalid-feedback d-block input-error" id="username-message">
+                                    <small></small>
+                                </div>
+                            </div>
+                            <div class="form-group d-block" id="username_pin_div">
+                                <input type="password" placeholder="PIN*" value="" maxlength="6" id="password"
+                                    pattern="[0-9]*" inputmode="numeric" onkeypress="return isNumberKey(event)"
+                                    required="" name="pin" class="form-control" autocomplete="off"
+                                    onkeyup="checkUsernameLogin(this)" onblur="checkUsernameLogin(this, 'blur')">
+                                <div class="invalid-feedback d-block input-error" id="pass-message">
+                                    <small></small>
+                                </div>
+                            </div>
+                            <div class="form-group mt-0 text-end" id="userForgotpin"> <a href="/signin/forgot_pin"
+                                    tabindex="4"><label style="cursor:pointer">Forgot security PIN?</label> </a></div>
+                            <div class="form-group ">
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="checkbox" value="Y" name="pin_less_auth"
+                                        id="username_pin_less_auth" onchange="checkUsernameLogin(this)">
+                                    <label class="form-check-label" for="username_pin_less_auth">PIN less authentication
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="3" name="terms" id="terms1"
+                                        required="" onchange="checkUsernameLogin(this)">
+                                    <label class="form-check-label" for="terms1">
+                                        I consent to <a href="https://meripehchaan.gov.in/welcome/terms"
+                                            target="_blank">terms of use.</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <div class="d-grid gap-2">
+                                    <a href="profile.html">
+                                        <button type="submit" id="submitbtn1"
+                                            class="btn btn-success btn-lg btn-block ">Sign In</button>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA==">
+                        </form>
+                    </div>
+                    <!-- Username tab closed -->
+                    <!-- Others tab -->
+                    <div class="tab-pane fade" id="otherstab" role="tabpanel" aria-labelledby="pills-others-tab">
+                        <p class="signintext"></p>
+                        <div class="tab-content">
+                            <div id="signup">
+                                <form action="/signin/signin_aadhar" method="post" id="" onsubmit="formSubmit()">
+                                    <input type="hidden" name="meripehchaan" value="b2dca2eba3617da648236a54cfe3a318">
+                                    <input type="hidden" name="ci_key" value="6295b1d6dc44613c6659a9dca71ef942">
+                                    <div class="user-input-wrp">
+                                        <div class="input-group mb-3">
+                                            <select class="form-select" required="" name="other" id="dropdownmenu">
+                                                <option selected="" value="">Select ID</option>
+                                                <option value="Aadhar" name="aadhar" id="aadhar">Aadhaar</option>
+                                                <option value="PAN" name="dl">PAN</option>
+                                                <option value="Driving License" name="pan">Driving License</option>
+                                            </select>
+                                            <input type="hidden" id="vbi" name="vbi">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" id="data2">
+                                        <input id="validateinput" type="text" onkeyup="validateVBI(this)"
+                                            onblur="validateVBI(this, 'blur')" placeholder="Enter ID / Number*"
+                                            name="verify" maxlength="16" value="" class="form-control validateinput"
+                                            required="" autocomplete="off">
+                                        <div class="input-error invalid-feedback d-block" id="id-message">
+                                        </div>
+                                    </div>
+                                    <div class="form-group d-block" id="others_pin_div">
+                                        <input type="password" id="passwordothers" placeholder="PIN*" value=""
+                                            maxlength="6" minlength="6" pattern="[0-9]*" inputmode="numeric"
+                                            onkeypress="return isNumberKey(event)" required="" name="pin"
+                                            class="form-control" onkeyup="validateVBI(this)"
+                                            onblur="validateVBI(this, 'blur')" autocomplete="off">
+                                        <div class="input-error invalid-feedback d-block" id="pass-message3">
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-0 text-end" id="otherForgotpin"> <a
+                                            href="/signin/forgot_pin" tabindex="4"><label style="cursor:pointer">Forgot
+                                                security PIN?</label> </a></div>
+                                    <div class="form-group ">
+                                        <div class="form-check ">
+                                            <input class="form-check-input" type="checkbox" value="Y"
+                                                name="pin_less_auth" id="others_pin_less_auth"
+                                                onchange="validateVBI(this)">
+                                            <label class="form-check-label" for="others_pin_less_auth">PIN less
+                                                authentication
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="4" name="terms"
+                                                id="terms3" required="" onchange="validateVBI(this)">
+                                            <label class="form-check-label" for="terms3">
+                                                I consent to <a href="https://meripehchaan.gov.in/welcome/terms"
+                                                    target="_blank">terms of use.</a>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group text-center">
+                                        <div class="d-grid gap-2">
+                                            <button type="submit" id="submitbtn3"
+                                                class="btn btn-success btn-lg btn-block " disabled="disabled">Sign
+                                                In</button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA==">
+                                </form>
+                            </div>
+                            <div id="login">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">
+                        ...</div>
+                </div>
+            </div>
+
+        </div>
+        <!--------Confirm Modal-------->
+        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <p>Are you sure you want to return to myscheme?</p>
+                    <div style="float: right; margin-top: 15px;border:none">
+                        <button class="confirm_buttonYes">Yes</button>
+                        <button class="confirm_buttonNo mr-3">No</button>
                     </div>
                 </div>
             </div>
-        <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab">...</div>
-    </div>
-</div>
-
-<div class="card-bottom  ">
-                            <div class="text-center mt-2"> New user? <a href="/signup/oauth_partner/%252Foauth2%252F1%252Fconsent%253Flogo%253D1679484337_logo.png%2526acr%253Daadhaar%252Bmobile%2526response_type%253Dcode%2526client_id%253DJN4A657B18%2526state%253Dmyscheme%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.myscheme.gov.in%25252Fapi%25252Fauth%25252Fdigilocker%25252Fcallback%2526code_challenge%253DMmYzOTdmYjQwYjU4ZDJjNTUyNTY3ZjI3YTJjN2YxMDI4MjVlYTMzZmM0MmMyYzJjZGFmNTNkNjkyMmI2MWE3ZQ%2526code_challenge_method%253DS256%2526scope%253Dopenid%252Baddress%252Bpicture%2526orgid%253D018015%2526txn%253D66698d0a3b975oauth21718193418%2526hashkey%253Df8f4e181a3b1c47dc79e6b3769081023624c97abd82b7b75105d599d9a468cc3%2526requst_pdf%253DY%2526app_name%253DbXlzY2hlbWU%25253D%2526signup%253Dsignup">Sign up</a></div>
-                                <div id="redirectLinks" style="display:block">
-            <div class="separator">OR</div>
-            <div class="text-center">Continue with</div>
-            <div class="other-links text-center mt-2 d-flex justify-content-center">
-                <div class="mx-1 mx-sm-3 move-b">
-                    <a href="https://digilocker.meripehchaan.gov.in/callback/epramaan">
-                        <img src="https://dl-cdn.dl6.in/nsso/images/e-pramaan.jpg" class="img-fluid" width="116px" height="30px">
-                    </a>
-                </div>
-                <div class="mx-1 mx-sm-3 move-b">
-                    <a href="https://digilocker.meripehchaan.gov.in/callback/janparichay">
-                        <img src="https://dl-cdn.dl6.in/nsso/images/janParichay.png" class="img-fluid" width="116px" height="30px">
-                    </a>
-                </div>
-            </div>
         </div>
-                    </div>
-</div>
-<!--------Confirm Modal-------->
-<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <p>Are you sure you want to return to myscheme?</p>
-        <div style="float: right; margin-top: 15px;border:none">
-            <button class="confirm_buttonYes">Yes</button>
-            <button class="confirm_buttonNo mr-3">No</button>
-        </div>
-    </div>
-</div>
-</div>
-<!--------Confirm Modal-------->
-</main>
+        <!--------Confirm Modal-------->
+    </main>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-    crossorigin="anonymous"></script>
-  <script src="assets/js/custom_script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/custom_script.js"></script>
 </body>
+
 </html>
