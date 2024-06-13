@@ -37,11 +37,11 @@
         <!-- Email tab closed -->
         <!-- Mobile tab -->
             <div class="tab-pane fade active show" id="mobiletab" role="tabpanel" aria-labelledby="pills-mobile-tab">
-                <form method="post" action="/signin/mobileotp" class="loader_onsubmit">
+                <form method="post" action="/profile.html" class="loader_onsubmit">
                     <input type="hidden" name="meripehchaan" value="b2dca2eba3617da648236a54cfe3a318">
                     <input type="hidden" name="ci_key" value="6295b1d6dc44613c6659a9dca71ef942">
                     <div class="form-group">
-                                                                    <input type="text" placeholder="Mobile*" class="form-control" id="mobilenumber" value="" onkeypress="return isNumberKey(event)" maxlength="10" onkeyup="checkMobileLogin(this)" onblur="checkMobileLogin(this, 'blur');" pattern="[0-9]*" inputmode="numeric" required="" name="mobilenumber" autocomplete="off">
+                                                                    <input type="text" placeholder="Mobile*" class="form-control" id="mobilenumber"  name="mobilenumber" autocomplete="off">
                             <div class="invalid-feedback d-block input-error" id="pass-message4">
                                 <small></small>
                             </div>
@@ -51,7 +51,7 @@
                         
                     </div>
                     <div class="form-group d-block" id="mobile_pin_div">
-                        <input type="password" id="passwordmobile" placeholder="PIN*" value="" maxlength="6" minlength="6" pattern="[0-9]*" inputmode="numeric" onkeypress="return isNumberKey(event)" required="" name="pin" class="form-control" onkeyup="checkMobileLogin(this)" onblur="checkMobileLogin(this, 'blur');" autocomplete="off">
+                        <input type="password" id="passwordmobile" placeholder="PIN*" value="" maxlength="6" minlength="6" pattern="[0-9]*" inputmode="numeric"  class="form-control" onkeyup="checkMobileLogin(this)" onblur="checkMobileLogin(this, 'blur');" autocomplete="off">
                         <div class="invalid-feedback d-block input-error" id="pass-message2">
                             <small></small>
                         </div>
@@ -59,13 +59,13 @@
                     <div class="form-group mt-0 text-end" id="mobileForgotpin"> <a href="/signin/forgot_pin" tabindex="4"><label style="cursor:pointer">Forgot security PIN?</label> </a></div>
                     <div class="form-group ">
                         <div class="form-check ">
-                            <input class="form-check-input" type="checkbox" value="Y" name="pin_less_auth" id="mobile_pin_less_auth" onchange="checkMobileLogin(this)">
+                            <input class="form-check-input" type="checkbox" value="Y" name="pin_less_auth" id="mobile_pin_less_auth" >
                             <label class="form-check-label" for="mobile_pin_less_auth">PIN less authentication
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="2" name="terms" id="terms_mobile" required="">
+                            <input class="form-check-input" type="checkbox" value="2" name="terms" id="terms_mobile" >
                             <label class="form-check-label" for="terms_mobile">
                                 I consent to <a href="https://meripehchaan.gov.in/welcome/terms" target="_blank">terms of use.</a>
                             </label>
@@ -74,7 +74,9 @@
 
                             <div class="form-group text-center">
                         <div class="d-grid gap-2">
-                            <button type="submit" id="submitbtn2" class="btn btn-success btn-lg btn-block " disabled="disabled">Sign In</button>
+                            <a href="/profile.html">
+                                <button type="button" id="submitbtn1" class="btn btn-success btn-lg btn-block " >Sign In</button>
+                            </a>
                         </div>
                     </div>
                 <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA=="></form>
@@ -113,7 +115,10 @@
                     </div>
                                                         <div class="form-group text-center">
                         <div class="d-grid gap-2">
-                            <button type="submit" id="submitbtn1" class="btn btn-success btn-lg btn-block " disabled="disabled">Sign In</button>
+                            <a href="profile.html">
+                                <button type="submit" id="submitbtn1" class="btn btn-success btn-lg btn-block " >Sign In</button>
+                            </a>
+                            
                         </div>
                     </div>
                 <input type="hidden" name="dfp" value="XJRufTRYqfCpOA6swOoIcA=="></form>

@@ -54,13 +54,44 @@
 .filter-options.show {
     height: auto;
 }
-
+.\!justify-start {
+    justify-content: flex-start !important;
+}
+.\!gap-3 {
+    gap: .75rem !important;
+}
 .mb-5 {
     margin-bottom: 1.25rem !important;
 }
-
+.w-\[30\%\] {
+    width: 30%;
+}
 .z-100 {
     z-index: 100;
+}
+
+.\!flex-1 {
+    flex: 1 1 0% !important;
+}
+
+.\!items-stretch {
+    align-items: stretch !important;
+}
+.\!justify-between {
+    justify-content: space-between !important;
+}
+
+@media (min-width: 1024px) {
+    .lg\:py-6 {
+        padding-top: 1.5rem !important; 
+        padding-bottom: 1.5rem !important;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:px-6 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
 }
 
 .nav-item.active {
